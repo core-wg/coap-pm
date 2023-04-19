@@ -698,8 +698,8 @@ core-parameters/core-parameters.xhtml#option-numbers:
 {:unnumbered}
 
 The authors would like to thank
-{{{Christian Amsüss}}}, 
-{{{Carsten Bormann}}}, 
+{{{Christian Amsüss}}},
+{{{Carsten Bormann}}},
 {{{Marco Tiloca}}},
 {{{Thomas Fossati}}}
 for the precious comments and suggestions.
