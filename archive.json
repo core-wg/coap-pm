@@ -1,0 +1,81 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-09-17T01:15:20.773494+00:00",
+  "repo": "core-wg/coap-pm",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJYzDyc5VK9TN",
+      "title": "Provide example of input for contributors section",
+      "url": "https://github.com/core-wg/coap-pm/pull/1",
+      "state": "OPEN",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "I added an example for an entry in the contributors section.\r\nThese look like entries in the authors section, but don't count towards the RFC editor's limit of 5 authors for an RFC.\r\nThis is just a suggestion, use as you see fit.",
+      "createdAt": "2023-07-11T07:59:36Z",
+      "updatedAt": "2023-07-11T07:59:36Z",
+      "baseRepository": "core-wg/coap-pm",
+      "baseRefName": "main",
+      "baseRefOid": "70ed048df3512e0202a2fb0a7292694a6c72eb7c",
+      "headRepository": "core-wg/coap-pm",
+      "headRefName": "contributor-section",
+      "headRefOid": "d20b4bf3e104f21400b5495d6b07bb7b8c93aa7a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
