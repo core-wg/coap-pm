@@ -44,26 +44,6 @@ author:
   country: China
   email: zhoutianran@huawei.com
 
-- ins: M. Cociglio
-  name: Mauro Cociglio
-  org: Telecom Italia
-  street: Via Reiss Romoli, 274
-  city: Torino
-  region: ''
-  code: '10148'
-  country: Italy
-  email: mauro.cociglio@outlook.com
-
-- ins: F. Bulgarella
-  name: Fabio Bulgarella
-  org: Telecom Italia
-  street: Via Reiss Romoli, 274
-  city: Torino
-  region: ''
-  code: '10148'
-  country: Italy
-  email: fabio.bulgarella@guest.telecomitalia.it
-
 - ins: M. Nilo
   name: Massimo Nilo
   org: Telecom Italia
@@ -84,10 +64,20 @@ author:
   country: Italy
   email: fabrizio.milan@telecomitalia.it
 
+- ins: F. Bulgarella
+  name: Fabio Bulgarella
+  org: Telecom Italia
+  street: Via Reiss Romoli, 274
+  city: Torino
+  region: ''
+  code: '10148'
+  country: Italy
+  email: fabio.bulgarella@guest.telecomitalia.it
+
 contributor:
-- name: Joe Bloggs
-  org: Bloggsers are us
-  email: joe@bloggs.us
+- name: Mauro Cociglio
+  org: Telecom Italia
+  email: mauro.cociglio@outlook.com
 
 normative:
   RFC7252:
