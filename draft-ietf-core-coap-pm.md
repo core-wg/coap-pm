@@ -84,6 +84,11 @@ author:
   country: Italy
   email: fabrizio.milan@telecomitalia.it
 
+contributor:
+- name: Joe Bloggs
+  org: Bloggsers are us
+  email: joe@bloggs.us
+
 normative:
   RFC7252:
   RFC8613:
