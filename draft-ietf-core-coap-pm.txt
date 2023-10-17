@@ -5,10 +5,9 @@
 CORE Working Group                                           G. Fioccola
 Internet-Draft                                                   T. Zhou
 Intended status: Standards Track                                  Huawei
-Expires: 19 April 2024                                       M. Cociglio
-                                                           F. Bulgarella
-                                                                 M. Nilo
+Expires: 19 April 2024                                           M. Nilo
                                                                 F. Milan
+                                                           F. Bulgarella
                                                           Telecom Italia
                                                          17 October 2023
 
@@ -709,9 +708,9 @@ Acknowledgements
 
 Contributors
 
-   Joe Bloggs
-   Bloggsers are us
-   Email: joe@bloggs.us
+   Mauro Cociglio
+   Telecom Italia
+   Email: mauro.cociglio@outlook.com
 
 
 Authors' Addresses
@@ -733,22 +732,6 @@ Authors' Addresses
    Email: zhoutianran@huawei.com
 
 
-   Mauro Cociglio
-   Telecom Italia
-   Via Reiss Romoli, 274
-   10148 Torino
-   Italy
-   Email: mauro.cociglio@outlook.com
-
-
-   Fabio Bulgarella
-   Telecom Italia
-   Via Reiss Romoli, 274
-   10148 Torino
-   Italy
-   Email: fabio.bulgarella@guest.telecomitalia.it
-
-
    Massimo Nilo
    Telecom Italia
    Via Reiss Romoli, 274
@@ -763,3 +746,11 @@ Authors' Addresses
    10148 Torino
    Italy
    Email: fabrizio.milan@telecomitalia.it
+
+
+   Fabio Bulgarella
+   Telecom Italia
+   Via Reiss Romoli, 274
+   10148 Torino
+   Italy
+   Email: fabio.bulgarella@guest.telecomitalia.it
