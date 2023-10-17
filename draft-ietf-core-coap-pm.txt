@@ -90,6 +90,7 @@ Table of Contents
      9.1.  Normative References
      9.2.  Informative References
    Acknowledgements
+   Contributors
    Authors' Addresses
 
 1.  Introduction
@@ -705,6 +706,13 @@ Acknowledgements
    The authors would like to thank Christian Amsüss, Carsten Bormann,
    Marco Tiloca, Thomas Fossati for the precious comments and
    suggestions.
+
+Contributors
+
+   Joe Bloggs
+   Bloggsers are us
+   Email: joe@bloggs.us
+
 
 Authors' Addresses
 
