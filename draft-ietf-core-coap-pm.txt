@@ -5,12 +5,12 @@
 CORE Working Group                                           G. Fioccola
 Internet-Draft                                                   T. Zhou
 Intended status: Standards Track                                  Huawei
-Expires: 21 October 2023                                     M. Cociglio
+Expires: 19 April 2024                                       M. Cociglio
                                                            F. Bulgarella
                                                                  M. Nilo
                                                                 F. Milan
                                                           Telecom Italia
-                                                           19 April 2023
+                                                         17 October 2023
 
 
  Constrained Application Protocol (CoAP) Performance Measurement Option
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 October 2023.
+   This Internet-Draft will expire on 19 April 2024.
 
 Copyright Notice
 
@@ -195,8 +195,9 @@ Table of Contents
    sides to the same value for as long as one round trip lasts and then
    it toggles the value.
 
-   All the possible measurements (end-to-end, hop-by-hop) that are
-   enabled by the Q bit and S bit are detailed in
+   An on-path probe can read the Q bit and S bit signals and perform the
+   measurements.  All the possible measurements (end-to-end, hop-by-hop)
+   that are enabled by the Q bit and S bit are detailed in
    [I-D.ietf-ippm-explicit-flow-measurements].
 
 2.2.  Combined sQuare bit
@@ -323,18 +324,22 @@ Table of Contents
    *  Event bits MAY be used to encode additional Loss and Delay
       information based on well-defined encoding and they can also be
       used by on-path probes.  If these Event bits are all zero, they
-      MUST be ignored on receipt.
+      MUST be ignored on receipt.  Note that, if pattern 1 is used
+      instead of pattern 0, there is an extra bit available for the
+      event bits in order to carry additional information for the on-
+      path probe.
 
    It is worth noting that the only differences between the two patterns
-   are related to the accuracy of the measurements.  Further details can
-   be found in [I-D.ietf-ippm-explicit-flow-measurements].
+   are related to the accuracy of the measurements and to the number of
+   event bits.  Further details can be found in
+   [I-D.ietf-ippm-explicit-flow-measurements].
 
    The Event bits can be divided into two parts, for instance: loss
    event bits and delay event bits.  Based on the average RTT, an
    endpoint can define different levels of thresholds and set the delay
    event bits accordingly.  The same applies to loss event bits.  In
    this way an on-path probe becomes aware of the network conditions by
-   simply reading these Event bits.
+   simply reading these Event bits and without applying any algorithm.
 
    The on-path probe can read the event signaling bits and could be the
    Proxy or the Gateway which interconnects disjointed CoAP networks.
@@ -359,7 +364,7 @@ Table of Contents
 4.  Application Scenarios
 
    The main usage of the CoAP PM Option is to do end-to-end measurement
-   between the client and the server but it can also allow on-path
+   between the client and the server, but it can also allow on-path
    measurements.  The on-path measurement is the additional feature.
    This information can be used to monitor the network in order to check
    the operational performance and to employ further network
@@ -666,16 +671,16 @@ Table of Contents
               Bulgarella, F., Nilo, M., Hamchaoui, I., and R. Sisto,
               "Explicit Host-to-Network Flow Measurements Techniques",
               Work in Progress, Internet-Draft, draft-ietf-ippm-
-              explicit-flow-measurements-03, 13 March 2023,
+              explicit-flow-measurements-07, 10 July 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-
-              explicit-flow-measurements-03>.
+              explicit-flow-measurements-07>.
 
    [I-D.tiloca-core-oscore-capable-proxies]
               Tiloca, M. and R. Höglund, "OSCORE-capable Proxies", Work
               in Progress, Internet-Draft, draft-tiloca-core-oscore-
-              capable-proxies-06, 5 April 2023,
+              capable-proxies-07, 10 July 2023,
               <https://datatracker.ietf.org/doc/html/draft-tiloca-core-
-              oscore-capable-proxies-06>.
+              oscore-capable-proxies-07>.
 
    [RFC6347]  Rescorla, E. and N. Modadugu, "Datagram Transport Layer
               Security Version 1.2", RFC 6347, DOI 10.17487/RFC6347,
@@ -705,9 +710,9 @@ Authors' Addresses
 
    Giuseppe Fioccola
    Huawei
-   Riesstrasse, 25
-   80992 Munich
-   Germany
+   Palazzo Verrocchio, Centro Direzionale Milano 2
+   20054 Segrate (Milan)
+   Italy
    Email: giuseppe.fioccola@huawei.com
 
 
