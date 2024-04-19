@@ -21,7 +21,7 @@ title: Constrained Application Protocol (CoAP) Performance Measurement Option
 abbrev: COAP PM
 area: Applications and Real-Time
 wg: CORE Working Group
-date: 2023
+date: 2024
 
 author:
 - ins: G. Fioccola
@@ -85,11 +85,11 @@ normative:
   RFC9341:
 informative:
   RFC6347:
-  I-D.ietf-ippm-explicit-flow-measurements:
+  RFC9506:
   RFC9000:
   RFC9312:
   RFC7641:
-  I-D.tiloca-core-oscore-capable-proxies:
+  I-D.ietf-core-oscore-capable-proxies:
 
 --- abstract
 
@@ -126,7 +126,7 @@ can be useful to verify that the operational requirements are met, but it should
 a simple mechanism for network diagnostic to be developed on constrained nodes
 requiring just a minimal amount of collaboration from the endpoints.
 
-{{I-D.ietf-ippm-explicit-flow-measurements}} describes the methodologies for Explicit Flow Measurement (EFM).
+{{RFC9506}} describes the methodologies for Explicit Flow Measurement (EFM).
 The EFM techniques employ few marking bits, inside the header of each packet,
 for loss and delay measurement.
 These are relevant for encrypted protocols, e.g. QUIC {{RFC9000}}, where there are only
@@ -134,7 +134,7 @@ few bits available in the non-encrypted header in order to allow passive
 performance metrics from an on-path probe.
 These methodologies could potentially be used and extended in CoAP.
 
-{{I-D.ietf-ippm-explicit-flow-measurements}} defines different combinations of bits.
+{{RFC9506}} defines different combinations of bits.
 Such flexibility is convenient when using a protocol with a limited number of
 eligible bits to exploit, e.g., QUIC.
 Different alternatives have been proposed, but all these methods together
@@ -159,7 +159,7 @@ This new option is defined in {{PMO}} and carries PM bits.
 
 The PM bits that are included in the Option are:
 
-* sQuare bit (Q bit), based on {{RFC9341}} and further described in {{I-D.ietf-ippm-explicit-flow-measurements}};
+* sQuare bit (Q bit), based on {{RFC9341}} and further described in {{RFC9506}};
 
 * Spin bit (S bit), described in {{RFC9312}} and included as optional bit in {{RFC9000}};
 
@@ -199,7 +199,7 @@ as one round trip lasts and then it toggles the value.
 
 An on-path probe can read the Q bit and S bit signals and perform the measurements.
 All the possible measurements (end-to-end, hop-by-hop) that are enabled by
-the Q bit and S bit are detailed in {{I-D.ietf-ippm-explicit-flow-measurements}}.
+the Q bit and S bit are detailed in {{RFC9506}}.
 
 
 ## Combined sQuare bit {#Cbit}
@@ -225,7 +225,7 @@ is a Combined sQuare bit (C bit) signal.
 This mechanism uses a single bit that serves two purposes: a loss indicator
 and a delay indicator.
 It is worth highlighting that it is similar to the Delay bit (D bit), described
-in {{I-D.ietf-ippm-explicit-flow-measurements}}.
+in {{RFC9506}}.
 Indeed, the D bit, as enhancement of the S bit, is set only once per RTT
 and a single packet with the marked Delay bit bounces
 between a client and a server. The C bit value can also be seen as an Exclusive
@@ -233,11 +233,10 @@ OR operation (XOR) between the two Q bit and D bit values:
 C = Q XOR D.
 
 Since C bit incorporates both Q bit and S bit information, the same considerations
-for the two separate signals in {{I-D.ietf-ippm-explicit-flow-measurements}}
-can also be extended in the case of C bit.
+for the two separate signals in {{RFC9506}} can also be extended in the case of C bit.
 Therefore, all the possible measurements (end-to-end, hop-by-hop) that are
-enabled by using only C bit can be found in {{I-D.ietf-ippm-explicit-flow-measurements}}
-by merging Q bit and S bit derived measurements.
+enabled by using only C bit can be found in {{RFC9506}} by merging Q bit and S bit
+derived measurements.
 
 
 # CoAP Performance Measurement Option {#PMO}
@@ -318,12 +317,12 @@ a single PM bit (C bit).
 
 Where:
 
-* Q bit is used in pattern 0. It is described in {{I-D.ietf-ippm-explicit-flow-measurements}};
+* Q bit is used in pattern 0. It is described in {{RFC9506}};
 
 * S bit is used in pattern 0. It is described in {{RFC9312}} and also embedded in the QUIC Protocol {{RFC9000}};
 
 * C bit is used in pattern 1. It is based on the enhancement of the Q bit signal
-  with the S bit information. The two methods are described in {{I-D.ietf-ippm-explicit-flow-measurements}} and coupled as detailed in {{Cbit}};
+  with the S bit information. The two methods are described in {{RFC9506}} and coupled as detailed in {{Cbit}};
 
 * Event bits MAY be used to encode additional Loss and Delay information based on well-defined encoding
   and they can also be used by on-path probes. If these Event bits are all zero, they MUST be ignored on receipt.
@@ -332,7 +331,7 @@ Where:
 
 It is worth noting that the only differences between the two patterns are
 related to the accuracy of the measurements and to the number of event bits.
-Further details can be found in {{I-D.ietf-ippm-explicit-flow-measurements}}.
+Further details can be found in {{RFC9506}}.
 
 The Event bits can be divided into two parts, for instance: loss event bits and delay event bits.
 Based on the average RTT, an endpoint can define different levels of thresholds
@@ -395,12 +394,12 @@ The enabled measurements are:
 
 * end-to-end loss and delay measurements between Client and Server,
 
-* on-path upstream and downstream loss and delay components (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}})
+* on-path upstream and downstream loss and delay components (as explained in {{RFC9506}})
   if there is a probe (e.g. network functions).
 
 * on-path intra-domain loss and delay portion if there are more than one probe
   as a result of the difference between the computed
-  upstream or downstream components (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}).
+  upstream or downstream components (as explained in {{RFC9506}}).
 
 The on-path network probes can read Q bit and S bit (or C bit) and implement
 the relevant algorithms to measure losses and RTT.
@@ -413,9 +412,9 @@ If the CoAP PM Option is applied between client and server, a probe can measure
 the total RTT by using the S bit, indeed it allows RTT measurement for all the intermediate points.
 Additionally, with the Q bit and by applying {{RFC9341}}, it is also possible to do
 hop-by-hop measurements for loss and delay and segment where possible between the probes,
-according to the methodologies described in {{I-D.ietf-ippm-explicit-flow-measurements}}.
+according to the methodologies described in {{RFC9506}}.
 Alternatively, it is possible to use the C bit to get the same information
-for loss and delay as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}.
+for loss and delay as explained in {{RFC9506}}.
 
 
 ## Collaborating proxies {#cproxies}
@@ -448,23 +447,23 @@ measurements can be done on the separated sessions:
 * loss and delay measurements between Client and Proxy, between Proxies and
   between Proxy and Server,
 
-* on-path upstream and downstream loss and delay components (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}) on each Proxy,
+* on-path upstream and downstream loss and delay components (as explained in {{RFC9506}}) on each Proxy,
 
-* on-path upstream and downstream loss and delay components (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}) on each Probe,
+* on-path upstream and downstream loss and delay components (as explained in {{RFC9506}}) on each Probe,
 
 * end-to-end loss and delay measurements as a result of the addition of the
   loss and delay contributions of the separated sessions.
 
 * on-path intra-domain loss and delay portion as a result of the difference
   between the computed upstream or downstream components
-  (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}).
+  (as explained in {{RFC9506}}).
 
 
 So, if there are CoAP proxies, the measurement can be done between the Proxies
 or between a Proxy and the Client or between a Proxy and the Server.
 It can be done through Spin bit or by applying {{RFC9341}} on the sQuare Bit signal.
 Therefore, it is also possible to do hop-by-hop measurements for loss and delay and
-segment where possible according to the methodologies described in {{I-D.ietf-ippm-explicit-flow-measurements}}.
+segment where possible according to the methodologies described in {{RFC9506}}.
 
 
 ## Non-collaborating proxies {#ncproxies}
@@ -521,11 +520,11 @@ measurements for a single client and a single server at once can be:
 
 * end-to-end loss and delay measurements between Client and Server,
 
-* on-path upstream and downstream loss and delay components (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}) on each Probe,
+* on-path upstream and downstream loss and delay components (as explained in {{RFC9506}}) on each Probe,
 
 * on-path intra-domain loss and delay portion as a result of the difference
   between the computed upstream or downstream components
-  (as explained in {{I-D.ietf-ippm-explicit-flow-measurements}}).
+  (as explained in {{RFC9506}}).
 
 
 ## DTLS {#dtls}
@@ -565,7 +564,7 @@ and the outer can be used for measuring the connection to next proxy.
 
 If the PM option is used as an Outer Option, it may also be integrity-protected,
 to be reliably processed and this would require using also DTLS or an OSCORE association with a proxy
-{{I-D.tiloca-core-oscore-capable-proxies}}.
+{{I-D.ietf-core-oscore-capable-proxies}}.
 
 
 # Management and Configuration {#MaO}
@@ -648,4 +647,3 @@ The authors would like to thank
 {{{Marco Tiloca}}},
 {{{Thomas Fossati}}}
 for the precious comments and suggestions.
-
