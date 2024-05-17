@@ -146,6 +146,12 @@ The CoAP performance metrics (e.g. RTT and losses) allow to perform
 both end-to-end and hop-by-hop measurements and can be useful for an operator
 or an enterprise that is managing a constrained, low-power and lossy network.
 
+This document ultimately is intended to be published as a standards-track RFC.
+Its current stage of development, it is complete and stable enough to
+be used as a basis for experiments, the evaluation and continuation of
+which will lead to further evolution towards the intended
+standards-track document.
+
 ## Requirements Language
 
 {::boilerplate bcp14-tagged}
