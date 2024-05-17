@@ -252,15 +252,10 @@ The formatting of this table is reported in {{RFC7252}}.
 The C, U, N, and R columns indicate the properties Critical, Unsafe, NoCacheKey,
 and Repeatable as defined in {{RFC7252}}.
 
-~~~~
-   +--------+---+---+---+---+--------+--------+--------+---------+
-   | Number | C | U | N | R | Name   | Format | Length | Default |
-   +========+===+===+===+===+========+========+========+=========+
-   | TBD    |   | x | - |   |   PM   | uint   | 1      | 0       |
-   +--------+---+---+---+---+--------+--------+--------+---------+
-             C=Critical, U=Unsafe, N=NoCacheKey, R=Repeatable
-~~~~
-{: #PMoption title='CoAP PM Option Properties'}
+   | Number | C | U | N | R | Name | Format | Length | Default |
+   |--------|---|---|---|---|------|--------|--------|---------|
+   | TBD    |   | x | - |   | PM   | uint   |      1 |       0 |
+{: #PMoption title='CoAP PM Option Properties (C=Critical, U=Unsafe, N=NoCacheKey, R=Repeatable)'}
 
 
 The CoAP PM Option is Elective and Proxy Unsafe. But as discussed in {{ncproxies}}, it MAY also
@@ -633,13 +628,10 @@ IANA is requested to add the following entry to the "CoAP Option
 Numbers" sub-registry available at
 https://www.iana.org/assignments/core-parameters/core-parameters.xhtml#option-numbers:
 
-~~~~
-          Number          Name              Reference
-          ---------------------------------------------
-          TBD           PM Option          [This draft]
-
-~~~~
-{: #PMoptionNs title='CoAP PM Option Numbers'}
+| Number | Name | Reference       |
+|--------|------|-----------------|
+| TBD    | PM   | [This document] |
+{: #PMoptionNs title='CoAP PM Option Number'}
 
 
 --- back
