@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-16T01:17:20.365841+00:00",
+  "timestamp": "2024-05-19T01:22:11.857727+00:00",
   "repo": "core-wg/coap-pm",
   "labels": [
     {
@@ -76,6 +76,32 @@
       "mergeCommit": {
         "oid": "d3a73e20afff1b7eee54024a8a1ef3c5329d9baa"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJYzDyc5v0-hd",
+      "title": "Clarify status, language and formatting nits",
+      "url": "https://github.com/core-wg/coap-pm/pull/2",
+      "state": "OPEN",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "These are a few changes I promised to suggest to you:\r\n\r\n* Clarify the status (right now, the next step is experiments, evaluation of which will give us the confidence to make this standards-track)\r\n* A few English language nist\r\n* Proper tables\r\n\r\nEnjoy.\r\n",
+      "createdAt": "2024-05-17T19:07:09Z",
+      "updatedAt": "2024-05-17T19:07:09Z",
+      "baseRepository": "core-wg/coap-pm",
+      "baseRefName": "main",
+      "baseRefOid": "eb0022b43604205ea7f4d88b5c0300413acabd98",
+      "headRepository": "core-wg/coap-pm",
+      "headRefName": "experimental-then-standard",
+      "headRefOid": "897a293797f048e6d8b8713f4a38f7e2d18c3e5f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
