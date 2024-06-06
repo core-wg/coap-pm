@@ -142,9 +142,15 @@ imply complex algorithms that do not apply well to the CoAP environment.
 
 This document aims to create an easy way to allow performance measurement
 for CoAP, by defining a new option, called Performance Measurement (PM) CoAP Option.
-The CoAP performance metrics (e.g. RTT and losses) allow to perform
+The CoAP performance metrics (e.g. RTT and losses) allow performing
 both end-to-end and hop-by-hop measurements and can be useful for an operator
 or an enterprise that is managing a constrained, low-power and lossy network.
+
+This document ultimately is intended to be published as a standards-track RFC.
+Its current stage of development, it is complete and stable enough to
+be used as a basis for experiments, the evaluation and continuation of
+which will lead to further evolution towards the intended
+standards-track document.
 
 ## Requirements Language
 
@@ -194,7 +200,7 @@ When sending a new request, a client sets the spin bit to the opposite value
 it had in the immediately previously sent request to the same server.
 Then, the server echoes the same value of the spin bit of the request
 in the spin bit of the response.
-Therefore the Spin bit is set by both sides to the same value for as long
+Therefore, the Spin bit is set by both sides to the same value for as long
 as one round trip lasts and then it toggles the value.
 
 An on-path probe can read the Q bit and S bit signals and perform the measurements.
@@ -206,7 +212,7 @@ the Q bit and S bit are detailed in {{RFC9506}}.
 
 The synergy between S bit and Q bit is also possible. As described above,
 the length of the Q bit square waves is fixed (e.g. a predefined number of packets)
-in this way each endpoint can detect a packet loss if it receives less packets than
+in this way each endpoint can detect a packet loss if it receives fewer packets than
 the other endpoint has sent.
 It is possible to potentiate the Q bit signal by incorporating RTT information
 as well. This implies a little modification to the algorithm of the Q bit
@@ -246,15 +252,10 @@ The formatting of this table is reported in {{RFC7252}}.
 The C, U, N, and R columns indicate the properties Critical, Unsafe, NoCacheKey,
 and Repeatable as defined in {{RFC7252}}.
 
-~~~~
-   +--------+---+---+---+---+--------+--------+--------+---------+
-   | Number | C | U | N | R | Name   | Format | Length | Default |
-   +========+===+===+===+===+========+========+========+=========+
-   | TBD    |   | x | - |   |   PM   | uint   | 1      | 0       |
-   +--------+---+---+---+---+--------+--------+--------+---------+
-             C=Critical, U=Unsafe, N=NoCacheKey, R=Repeatable
-~~~~
-{: #PMoption title='CoAP PM Option Properties'}
+   | Number | C | U | N | R | Name | Format | Length | Default |
+   |--------|---|---|---|---|------|--------|--------|---------|
+   | TBD    |   | x | - |   | PM   | uint   |      1 |       0 |
+{: #PMoption title='CoAP PM Option Properties (C=Critical, U=Unsafe, N=NoCacheKey, R=Repeatable)'}
 
 
 The CoAP PM Option is Elective and Proxy Unsafe. But as discussed in {{ncproxies}}, it MAY also
@@ -283,7 +284,7 @@ This integer value encodes the following fields:
 
 Where:
 
-* The Mode bit (M bit) can be set to 1 or 0 and it is used to identify whether
+* The Mode bit (M bit) can be set to 1 or 0.  It is used to identify whether
   the Option follows pattern 0 (M bit = 0) or pattern 1 (M bit = 1).
 
 * Pattern bits can be of two kinds as reported below.
@@ -324,8 +325,8 @@ Where:
 * C bit is used in pattern 1. It is based on the enhancement of the Q bit signal
   with the S bit information. The two methods are described in {{RFC9506}} and coupled as detailed in {{Cbit}};
 
-* Event bits MAY be used to encode additional Loss and Delay information based on well-defined encoding
-  and they can also be used by on-path probes. If these Event bits are all zero, they MUST be ignored on receipt.
+* Event bits MAY be used to encode additional Loss and Delay information based on well-defined encoding;
+  they can also be used by on-path probes. If these Event bits are all zero, they MUST be ignored on receipt.
   Note that, if pattern 1 is used instead of pattern 0, there is an extra bit available for the event bits
   in order to carry additional information for the on-path probe.
 
@@ -351,8 +352,8 @@ it can simply exclude the option in the outgoing message.
 In this way the other CoAP endpoints become aware that the measurement cannot
 be executed in that case.
 
-The fixed number of packets to create the Q bit (or C bit) signal is predefined
-and its value is configured from the beginning for all the CoAP endpoints, as also mentioned in {{MaO}}.
+The fixed number of packets to create the Q bit (or C bit) signal is predefined:
+its value is configured from the beginning for all the CoAP endpoints, as also mentioned in {{MaO}}.
 
 It is worth mentioning that in some specific circumstances, e.g. CoAP clients
 that "observe" resources {{RFC7641}} or empty-ACKs, the measurements can be done only for one direction.
@@ -406,7 +407,7 @@ the relevant algorithms to measure losses and RTT.
 Otherwise they can simply read the Event bits and be informed about the performance
 without implementing any algorithm.
 The event signaling bits can be sent from the Server (that can do the performance
-measurement calculation) to the Client, or viceversa.
+measurement calculation) to the Client, or vice versa.
 
 If the CoAP PM Option is applied between client and server, a probe can measure
 the total RTT by using the S bit, indeed it allows RTT measurement for all the intermediate points.
@@ -419,7 +420,7 @@ for loss and delay as explained in {{RFC9506}}.
 
 ## Collaborating proxies {#cproxies}
 
-The proxies can be collaborating and it means that they understand and are
+The proxies can be "collaborating": this means that they understand and are
 configured to handle the CoAP PM Option.
 The CoAP PM Option can be handled on the client, on the server and on each
 Proxies.
@@ -490,7 +491,7 @@ Option only for a single client and a single server at once
 in order to avoid that traffic from different clients would be mixed.
 But, if the proxy has also cached data, the data can be reordered and mixed,
 so that they cannot be used for measurement. For this reason, the PM Option
-is defined as Proxy Unsafe and it is intended to be unsafe for forwarding
+is defined as Proxy Unsafe: it is intended to be unsafe for forwarding
 by a proxy that does not understand it. In conclusion, if there are non-collaborating
 and caching proxies, the measurements would not be possible.
 
@@ -575,7 +576,7 @@ It may be possible that the measurement points inform the NMS if there are parti
 (e.g. high packet loss or high RTT).
 For some parameters (e.g. 64 packets sQuare Bit signal), it is assumed static
 configuration on the client.
-There are several alternatives for the implementation but this is out of
+There are several alternatives for the implementation; this is out of
 scope of this document.
 
 
@@ -616,7 +617,7 @@ In this case, as explained above and differently from DTLS, the CoAP PM can
 easily work with OSCORE.
 OSCORE ensures end-to-end integrity protection and would tell the endpoints
 if someone tampered with the option value, but it doesn't mean that the endpoints
-are not lying to the probe. However it is possible to assume that for the typical
+are not lying to the probe. However, it is possible to assume that for the typical
 CoAP applications it is less likely that the endpoints are attackers while
 it is more likely that an on-path probe is the attacker.
 
@@ -627,13 +628,10 @@ IANA is requested to add the following entry to the "CoAP Option
 Numbers" sub-registry available at
 https://www.iana.org/assignments/core-parameters/core-parameters.xhtml#option-numbers:
 
-~~~~
-          Number          Name              Reference
-          ---------------------------------------------
-          TBD           PM Option          [This draft]
-
-~~~~
-{: #PMoptionNs title='CoAP PM Option Numbers'}
+| Number | Name | Reference       |
+|--------|------|-----------------|
+| TBD    | PM   | [This document] |
+{: #PMoptionNs title='CoAP PM Option Number'}
 
 
 --- back
