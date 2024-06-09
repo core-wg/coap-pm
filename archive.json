@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-06T01:19:17.733078+00:00",
+  "timestamp": "2024-06-09T01:26:20.094018+00:00",
   "repo": "core-wg/coap-pm",
   "labels": [
     {
@@ -84,25 +84,35 @@
       "id": "PR_kwDOJYzDyc5v0-hd",
       "title": "Clarify status, language and formatting nits",
       "url": "https://github.com/core-wg/coap-pm/pull/2",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "cabo",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "These are a few changes I promised to suggest to you:\r\n\r\n* Clarify the status (right now, the next step is experiments, evaluation of which will give us the confidence to make this standards-track)\r\n* A few English language nist\r\n* Proper tables\r\n\r\nEnjoy.\r\n",
       "createdAt": "2024-05-17T19:07:09Z",
-      "updatedAt": "2024-05-17T19:07:09Z",
+      "updatedAt": "2024-06-06T15:04:10Z",
       "baseRepository": "core-wg/coap-pm",
       "baseRefName": "main",
       "baseRefOid": "eb0022b43604205ea7f4d88b5c0300413acabd98",
       "headRepository": "core-wg/coap-pm",
       "headRefName": "experimental-then-standard",
       "headRefOid": "897a293797f048e6d8b8713f4a38f7e2d18c3e5f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2024-06-06T15:02:05Z",
+      "mergedAt": "2024-06-06T15:02:05Z",
+      "mergedBy": "giuseppefioccola",
+      "mergeCommit": {
+        "oid": "fb553bae49b4e254fe2bf892aefd3621338dabdc"
+      },
+      "comments": [
+        {
+          "author": "giuseppefioccola",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks you Carsten for the inputs!",
+          "createdAt": "2024-06-06T15:04:09Z",
+          "updatedAt": "2024-06-06T15:04:09Z"
+        }
+      ],
       "reviews": []
     }
   ]
