@@ -1,0 +1,119 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-07-04T01:21:37.332056+00:00",
+  "repo": "core-wg/coap-pm",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOJYzDyc5VK9TN",
+      "title": "Provide example of input for contributors section",
+      "url": "https://github.com/core-wg/coap-pm/pull/1",
+      "state": "MERGED",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "I added an example for an entry in the contributors section.\r\nThese look like entries in the authors section, but don't count towards the RFC editor's limit of 5 authors for an RFC.\r\nThis is just a suggestion, use as you see fit.",
+      "createdAt": "2023-07-11T07:59:36Z",
+      "updatedAt": "2023-10-17T13:02:41Z",
+      "baseRepository": "core-wg/coap-pm",
+      "baseRefName": "main",
+      "baseRefOid": "70ed048df3512e0202a2fb0a7292694a6c72eb7c",
+      "headRepository": "core-wg/coap-pm",
+      "headRefName": "contributor-section",
+      "headRefOid": "d20b4bf3e104f21400b5495d6b07bb7b8c93aa7a",
+      "closedAt": "2023-10-17T13:02:41Z",
+      "mergedAt": "2023-10-17T13:02:41Z",
+      "mergedBy": "giuseppefioccola",
+      "mergeCommit": {
+        "oid": "d3a73e20afff1b7eee54024a8a1ef3c5329d9baa"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJYzDyc5v0-hd",
+      "title": "Clarify status, language and formatting nits",
+      "url": "https://github.com/core-wg/coap-pm/pull/2",
+      "state": "MERGED",
+      "author": "cabo",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "These are a few changes I promised to suggest to you:\r\n\r\n* Clarify the status (right now, the next step is experiments, evaluation of which will give us the confidence to make this standards-track)\r\n* A few English language nist\r\n* Proper tables\r\n\r\nEnjoy.\r\n",
+      "createdAt": "2024-05-17T19:07:09Z",
+      "updatedAt": "2024-06-06T15:04:10Z",
+      "baseRepository": "core-wg/coap-pm",
+      "baseRefName": "main",
+      "baseRefOid": "eb0022b43604205ea7f4d88b5c0300413acabd98",
+      "headRepository": "core-wg/coap-pm",
+      "headRefName": "experimental-then-standard",
+      "headRefOid": "897a293797f048e6d8b8713f4a38f7e2d18c3e5f",
+      "closedAt": "2024-06-06T15:02:05Z",
+      "mergedAt": "2024-06-06T15:02:05Z",
+      "mergedBy": "giuseppefioccola",
+      "mergeCommit": {
+        "oid": "fb553bae49b4e254fe2bf892aefd3621338dabdc"
+      },
+      "comments": [
+        {
+          "author": "giuseppefioccola",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks you Carsten for the inputs!",
+          "createdAt": "2024-06-06T15:04:09Z",
+          "updatedAt": "2024-06-06T15:04:09Z"
+        }
+      ],
+      "reviews": []
+    }
+  ]
+}
