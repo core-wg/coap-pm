@@ -54,16 +54,6 @@ author:
   country: Italy
   email: massimo.nilo@telecomitalia.it
 
-- ins: F. Milan
-  name: Fabrizio Milan
-  org: Telecom Italia
-  street: Via Reiss Romoli, 274
-  city: Torino
-  region: ''
-  code: '10148'
-  country: Italy
-  email: fabrizio.milan@telecomitalia.it
-
 - ins: F. Bulgarella
   name: Fabio Bulgarella
   org: Telecom Italia
@@ -75,10 +65,15 @@ author:
   email: fabio.bulgarella@guest.telecomitalia.it
 
 contributor:
+  
 - name: Mauro Cociglio
   org: Telecom Italia
   email: mauro.cociglio@outlook.com
 
+- name: Fabrizio Milan
+  org: Telecom Italia
+  email: fabrizio.milan@telecomitalia.it
+  
 normative:
   RFC7252:
   RFC8613:
