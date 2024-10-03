@@ -65,7 +65,7 @@ author:
   email: fabio.bulgarella@guest.telecomitalia.it
 
 contributor:
-  
+
 - name: Mauro Cociglio
   org: Telecom Italia
   email: mauro.cociglio@outlook.com
@@ -73,7 +73,7 @@ contributor:
 - name: Fabrizio Milan
   org: Telecom Italia
   email: fabrizio.milan@telecomitalia.it
-  
+
 normative:
   RFC7252:
   RFC8613:
