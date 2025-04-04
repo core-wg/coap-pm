@@ -27,9 +27,9 @@ author:
 - ins: G. Fioccola
   name: Giuseppe Fioccola
   org: Huawei
-  street: Palazzo Verrocchio, Centro Direzionale Milano 2
-  city: Segrate (Milan)
-  code: '20054'
+  street: Viale Martesana, 12
+  city: Vimodrone (Milan)
+  code: '20055'
   region: ''
   country: Italy
   email: giuseppe.fioccola@huawei.com
@@ -44,31 +44,40 @@ author:
   country: China
   email: zhoutianran@huawei.com
 
-- ins: M. Nilo
-  name: Massimo Nilo
-  org: Telecom Italia
-  street: Via Reiss Romoli, 274
-  city: Torino
+- ins: M. Cociglio
+  name: Mauro Cociglio
+  org: ''
+  street: ''
+  city: ''
   region: ''
-  code: '10148'
+  code: ''
   country: Italy
-  email: massimo.nilo@telecomitalia.it
+  email: mauro.cociglio@outlook.com
 
 - ins: F. Bulgarella
   name: Fabio Bulgarella
   org: Telecom Italia
-  street: Via Reiss Romoli, 274
-  city: Torino
+  street: ''
+  city: ''
   region: ''
-  code: '10148'
+  code: ''
   country: Italy
   email: fabio.bulgarella@guest.telecomitalia.it
 
-contributor:
+- ins: Y. Zhu
+  name: Yongqing Zhu
+  org: China Telecom
+  street: ''
+  city: ''
+  region: ''
+  code: ''
+  country: China
+  email: zhuyq8@chinatelecom.cn
 
-- name: Mauro Cociglio
+contributor:
+- name: Massimo Nilo
   org: Telecom Italia
-  email: mauro.cociglio@outlook.com
+  email: massimo.nilo@telecomitalia.it
 
 - name: Fabrizio Milan
   org: Telecom Italia
