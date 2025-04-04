@@ -5,10 +5,13 @@
 CORE Working Group                                           G. Fioccola
 Internet-Draft                                                   T. Zhou
 Intended status: Standards Track                                  Huawei
-Expires: 5 August 2024                                           M. Nilo
+Expires: 6 October 2024                                      M. Cociglio
+                                                                        
                                                            F. Bulgarella
                                                           Telecom Italia
-                                                         2 February 2024
+                                                                  Y. Zhu
+                                                           China Telecom
+                                                            4 April 2024
 
 
  Constrained Application Protocol (CoAP) Performance Measurement Option
@@ -48,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 August 2024.
+   This Internet-Draft will expire on 6 October 2024.
 
 Copyright Notice
 
@@ -118,7 +121,7 @@ Table of Contents
    [RFC9506] describes the methodologies for Explicit Flow Measurement
    (EFM).  The EFM techniques employ few marking bits, inside the header
    of each packet, for loss and delay measurement.  These are relevant
-   for encrypted protocols, e.g.  QUIC [RFC9000], where there are only
+   for encrypted protocols, e.g. QUIC [RFC9000], where there are only
    few bits available in the non-encrypted header in order to allow
    passive performance metrics from an on-path probe.  These
    methodologies could potentially be used and extended in CoAP.
@@ -131,8 +134,8 @@ Table of Contents
 
    This document aims to create an easy way to allow performance
    measurement for CoAP, by defining a new option, called Performance
-   Measurement (PM) CoAP Option.  The CoAP performance metrics (e.g.
-   RTT and losses) allow performing both end-to-end and hop-by-hop
+   Measurement (PM) CoAP Option.  The CoAP performance metrics (e.g. RTT
+   and losses) allow performing both end-to-end and hop-by-hop
    measurements and can be useful for an operator or an enterprise that
    is managing a constrained, low-power and lossy network.
 
@@ -352,8 +355,8 @@ Table of Contents
    predefined: its value is configured from the beginning for all the
    CoAP endpoints, as also mentioned in Section 5.
 
-   It is worth mentioning that in some specific circumstances, e.g.
-   CoAP clients that "observe" resources [RFC7641] or empty-ACKs, the
+   It is worth mentioning that in some specific circumstances, e.g. CoAP
+   clients that "observe" resources [RFC7641] or empty-ACKs, the
    measurements can be done only for one direction.  For bidirectional
    measurements, it is required to have traffic in both directions.
 
@@ -661,9 +664,9 @@ Table of Contents
    [I-D.ietf-core-oscore-capable-proxies]
               Tiloca, M. and R. Höglund, "OSCORE-capable Proxies", Work
               in Progress, Internet-Draft, draft-ietf-core-oscore-
-              capable-proxies-03, 21 October 2024,
+              capable-proxies-04, 3 March 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-core-
-              oscore-capable-proxies-03>.
+              oscore-capable-proxies-04>.
 
    [RFC6347]  Rescorla, E. and N. Modadugu, "Datagram Transport Layer
               Security Version 1.2", RFC 6347, DOI 10.17487/RFC6347,
@@ -697,9 +700,9 @@ Acknowledgements
 
 Contributors
 
-   Mauro Cociglio
+   Massimo Nilo
    Telecom Italia
-   Email: mauro.cociglio@outlook.com
+   Email: massimo.nilo@telecomitalia.it
 
 
    Fabrizio Milan
@@ -711,8 +714,8 @@ Authors' Addresses
 
    Giuseppe Fioccola
    Huawei
-   Palazzo Verrocchio, Centro Direzionale Milano 2
-   20054 Segrate (Milan)
+   Viale Martesana, 12
+   20055 Vimodrone (Milan)
    Italy
    Email: giuseppe.fioccola@huawei.com
 
@@ -726,17 +729,18 @@ Authors' Addresses
    Email: zhoutianran@huawei.com
 
 
-   Massimo Nilo
-   Telecom Italia
-   Via Reiss Romoli, 274
-   10148 Torino
+   Mauro Cociglio
    Italy
-   Email: massimo.nilo@telecomitalia.it
+   Email: mauro.cociglio@outlook.com
 
 
    Fabio Bulgarella
    Telecom Italia
-   Via Reiss Romoli, 274
-   10148 Torino
    Italy
    Email: fabio.bulgarella@guest.telecomitalia.it
+
+
+   Yongqing Zhu
+   China Telecom
+   China
+   Email: zhuyq8@chinatelecom.cn
