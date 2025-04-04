@@ -21,7 +21,7 @@ title: Constrained Application Protocol (CoAP) Performance Measurement Option
 abbrev: COAP PM
 area: Applications and Real-Time
 wg: CORE Working Group
-date: 2024
+date: 2025
 
 author:
 - ins: G. Fioccola
