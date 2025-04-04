@@ -5,13 +5,13 @@
 CORE Working Group                                           G. Fioccola
 Internet-Draft                                                   T. Zhou
 Intended status: Standards Track                                  Huawei
-Expires: 6 October 2024                                      M. Cociglio
+Expires: 6 October 2025                                      M. Cociglio
                                                                         
                                                            F. Bulgarella
                                                           Telecom Italia
                                                                   Y. Zhu
                                                            China Telecom
-                                                            4 April 2024
+                                                            4 April 2025
 
 
  Constrained Application Protocol (CoAP) Performance Measurement Option
@@ -51,11 +51,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 October 2024.
+   This Internet-Draft will expire on 6 October 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
