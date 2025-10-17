@@ -171,24 +171,22 @@ The PM bits that are included in the Option are:
 
 * sQuare bit (Q bit), based on {{RFC9341}} and further described in {{RFC9506}};
 
-* Spin bit (S bit), described in {{RFC9312}} and included as optional bit in {{RFC9000}};
-
 * Loss and Delay event information for further usage.
 
 
 A requirement to enable PM methods in CoAP environment is that the methodologies
 and the algorithm needs to be kept simple.
-For this reason, the idea is to re-apply only the S bit and Q bit.
+For this reason, the idea is to re-apply only the Q bit.
 
 Thus, the advantages of using the CoAP PM Option are:
 
 1. Simplification because it is not needed to read Message IDs, indeed there
    is a well-defined sQuare wave, and it is not necessary to store timestamps,
-   since the duration of the Spin Bit period is equal to RTT.
-2. Enabling easy on-path probe (proxy, gateway) metrics.
+   since the RTT is the the time interval between a request and its response, if any.
+2. Enabling on-path probe (proxy, gateway) metrics.
 
 
-## sQuare bit and Spin bit {#QSbits}
+## sQuare bit {#Qbit}
 
 The sQuare bit algorithm consists of creating square waves of a known length
 (e.g. 64 packets). Each communicating endpoint can set
@@ -196,57 +194,9 @@ the Q bit and toggle its value each time a fixed number of messages have
 been sent. The number of packets can be easily recognized
 and packet loss can be measured.
 
-The Spin bit algorithm consists of creating a square wave signal on the data
-flow, using a bit, whose length is equal to RTT.
-The Spin bit causes one bit to ‘spin’, generating one edge (a transition
-from 0 to 1 or from 1 to 0) once per end-to-end RTT.
-When sending a new request, a client sets the spin bit to the opposite value
-it had in the immediately previously sent request to the same server.
-Then, the server echoes the same value of the spin bit of the request
-in the spin bit of the response.
-Therefore, the Spin bit is set by both sides to the same value for as long
-as one round trip lasts and then it toggles the value.
-
-An on-path probe can read the Q bit and S bit signals and perform the measurements.
+An on-path probe can read the Q bit signal and perform the measurements.
 All the possible measurements (end-to-end, hop-by-hop) that are enabled by
-the Q bit and S bit are detailed in {{RFC9506}}.
-
-
-## Combined sQuare bit {#Cbit}
-
-The synergy between S bit and Q bit is also possible. As described above,
-the length of the Q bit square waves is fixed (e.g. a predefined number of packets)
-in this way each endpoint can detect a packet loss if it receives fewer packets than
-the other endpoint has sent.
-It is possible to potentiate the Q bit signal by incorporating RTT information
-as well. This implies a little modification to the algorithm of the Q bit
-that could also be used alone:
-
-> A single packet in a period of the square wave can be selected and set to
-> the opposite value of that period. After one RTT it comes back and another packet
-> is selected and set again to the opposite value of that period.
-> And the process can start again. By measuring the distance between these
-> special packets, it is possible to measure the RTT in addition to packet loss.
-> The periods with the special packets have one packet less than expected but this is
-> easy to recognize and to take into account by both endpoints.
-
-The Q bit and S bit signals use two single bit values and the new signal
-is a Combined sQuare bit (C bit) signal.
-This mechanism uses a single bit that serves two purposes: a loss indicator
-and a delay indicator.
-It is worth highlighting that it is similar to the Delay bit (D bit), described
-in {{RFC9506}}.
-Indeed, the D bit, as enhancement of the S bit, is set only once per RTT
-and a single packet with the marked Delay bit bounces
-between a client and a server. The C bit value can also be seen as an Exclusive
-OR operation (XOR) between the two Q bit and D bit values:
-C = Q XOR D.
-
-Since C bit incorporates both Q bit and S bit information, the same considerations
-for the two separate signals in {{RFC9506}} can also be extended in the case of C bit.
-Therefore, all the possible measurements (end-to-end, hop-by-hop) that are
-enabled by using only C bit can be found in {{RFC9506}} by merging Q bit and S bit
-derived measurements.
+the Q bit are detailed in {{RFC9341}} and {{RFC9506}}.
 
 
 # CoAP Performance Measurement Option {#PMO}
@@ -267,8 +217,6 @@ be Safe-to-Forward in some implementations with non-caching proxies.
 
 As detailed in {{oscore}}, the option can be of class U, I and E in terms of OSCORE processing.
 
-Note that it could be possible to make use of one bit in the option to identify
-the mode. In this way two patterns can be defined.
 
 ## Structure of the PM Option
 
@@ -280,7 +228,7 @@ This integer value encodes the following fields:
                         0
                         0 1 2 3 4 5 6 7
                        +-+-+-+-+-+-+-+-+
-                       |M|   Pattern   |
+                       |Q|    Event    |
                        +-+-+-+-+-+-+-+-+
 ~~~~
 {: #PM title='Value of the CoAP Performance Measurement Option'}
@@ -288,55 +236,10 @@ This integer value encodes the following fields:
 
 Where:
 
-* The Mode bit (M bit) can be set to 1 or 0.  It is used to identify whether
-  the Option follows pattern 0 (M bit = 0) or pattern 1 (M bit = 1).
-
-* Pattern bits can be of two kinds as reported below.
-
-
-The PM Option can employ two patterns based on the value of the M bit:
-
-
-~~~~
-                        0
-                        0 1 2 3 4 5 6 7
-                       +-+-+-+-+-+-+-+-+
-                       |0|Q|S|  Event  |
-                       +-+-+-+-+-+-+-+-+
-~~~~
-{: #PM0 title='CoAP Performance Measurement Option pattern 0'}
-
-
-~~~~
-                        0
-                        0 1 2 3 4 5 6 7
-                       +-+-+-+-+-+-+-+-+
-                       |1|C|   Event   |
-                       +-+-+-+-+-+-+-+-+
-~~~~
-{: #PM1 title='CoAP Performance Measurement Option pattern 1'}
-
-
-The CoAP Option could be defined with 2 PM bits (S and Q) or defined with
-a single PM bit (C bit).
-
-Where:
-
-* Q bit is used in pattern 0. It is described in {{RFC9506}};
-
-* S bit is used in pattern 0. It is described in {{RFC9312}} and also embedded in the QUIC Protocol {{RFC9000}};
-
-* C bit is used in pattern 1. It is based on the enhancement of the Q bit signal
-  with the S bit information. The two methods are described in {{RFC9506}} and coupled as detailed in {{Cbit}};
+* Q bit is described in {{RFC9506}};
 
 * Event bits MAY be used to encode additional Loss and Delay information based on well-defined encoding;
   they can also be used by on-path probes. If these Event bits are all zero, they MUST be ignored on receipt.
-  Note that, if pattern 1 is used instead of pattern 0, there is an extra bit available for the event bits
-  in order to carry additional information for the on-path probe.
-
-It is worth noting that the only differences between the two patterns are
-related to the accuracy of the measurements and to the number of event bits.
-Further details can be found in {{RFC9506}}.
 
 The Event bits can be divided into two parts, for instance: loss event bits and delay event bits.
 Based on the average RTT, an endpoint can define different levels of thresholds
@@ -356,7 +259,11 @@ it can simply exclude the option in the outgoing message.
 In this way the other CoAP endpoints become aware that the measurement cannot
 be executed in that case.
 
-The fixed number of packets to create the Q bit (or C bit) signal is predefined:
+It is RECOMMENDED to insert the option immediately before the transmission in order to avoid
+unexpected behavior in case of retransmissions.
+Further details about the the accuracy of the measurements can be found in {{RFC9506}}.
+
+The fixed number of packets to create the Q bit signal is predefined:
 its value is configured from the beginning for all the CoAP endpoints, as also mentioned in {{MaO}}.
 
 It is worth mentioning that in some specific circumstances, e.g. CoAP clients
@@ -406,20 +313,17 @@ The enabled measurements are:
   as a result of the difference between the computed
   upstream or downstream components (as explained in {{RFC9506}}).
 
-The on-path network probes can read Q bit and S bit (or C bit) and implement
+The on-path network probes can read Q bit and implement
 the relevant algorithms to measure losses and RTT.
 Otherwise they can simply read the Event bits and be informed about the performance
 without implementing any algorithm.
 The event signaling bits can be sent from the Server (that can do the performance
 measurement calculation) to the Client, or vice versa.
 
-If the CoAP PM Option is applied between client and server, a probe can measure
-the total RTT by using the S bit, indeed it allows RTT measurement for all the intermediate points.
-Additionally, with the Q bit and by applying {{RFC9341}}, it is also possible to do
-hop-by-hop measurements for loss and delay and segment where possible between the probes,
-according to the methodologies described in {{RFC9506}}.
-Alternatively, it is possible to use the C bit to get the same information
-for loss and delay as explained in {{RFC9506}}.
+If the CoAP PM Option is applied between client and server, with the Q bit and
+by applying {{RFC9341}}, a probe can do hop-by-hop measurements for loss and delay
+and segment where possible between the probes, according to the methodologies
+described in {{RFC9506}}.
 
 
 ## Collaborating proxies {#cproxies}
@@ -466,7 +370,7 @@ measurements can be done on the separated sessions:
 
 So, if there are CoAP proxies, the measurement can be done between the Proxies
 or between a Proxy and the Client or between a Proxy and the Server.
-It can be done through Spin bit or by applying {{RFC9341}} on the sQuare Bit signal.
+It can be done by applying {{RFC9341}} on the sQuare Bit signal.
 Therefore, it is also possible to do hop-by-hop measurements for loss and delay and
 segment where possible according to the methodologies described in {{RFC9506}}.
 
