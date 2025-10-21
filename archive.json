@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-10-19T02:02:30.981144+00:00",
+  "timestamp": "2025-10-21T01:53:11.776942+00:00",
   "repo": "core-wg/coap-pm",
   "labels": [
     {
@@ -120,24 +120,26 @@
       "id": "PR_kwDOJYzDyc6uRMJz",
       "title": "Update draft-ietf-core-coap-pm.md",
       "url": "https://github.com/core-wg/coap-pm/pull/3",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "giuseppefioccola",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-10-17T09:51:49Z",
-      "updatedAt": "2025-10-17T09:51:49Z",
+      "updatedAt": "2025-10-20T10:23:33Z",
       "baseRepository": "core-wg/coap-pm",
       "baseRefName": "main",
       "baseRefOid": "511896f5fbda1b9bbee5508146c11b95d6c16a4a",
       "headRepository": "core-wg/coap-pm",
       "headRefName": "giuseppefioccola-patch-1",
       "headRefOid": "b163b19c17bd645b1d853509b12fb1630e6c22f9",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-10-20T10:23:33Z",
+      "mergedAt": "2025-10-20T10:23:33Z",
+      "mergedBy": "giuseppefioccola",
+      "mergeCommit": {
+        "oid": "5a16a2712feaf873ed349bea853a338e807198fd"
+      },
       "comments": [],
       "reviews": []
     }
